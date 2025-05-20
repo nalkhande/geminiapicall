@@ -1,0 +1,23 @@
+<html>
+    <head>
+    <title>test
+</title>    
+    <head>
+        <body>
+            <h1>working vsc</h1>
+            <form action="/process_form" method="POST">
+                <input type="text"  name="user_input">
+                <button type="submit" >Submit</button>
+                <button type="reset" onclick="reset_func()">Reset</button>
+            </form>
+
+            <p id="output_here">{{output_here}}</p>
+
+
+            <script>
+                function reset_func(){
+                    location.reload(true);
+                }
+            </script>
+</body>
+    </html>

@@ -1,0 +1,24 @@
+This contains notes and steps
+
+Error
+[Tue May 20 17:58:54.262465 2025] [core:error] [pid 41542] 
+(13)Permission denied: [client 127.0.0.1:35852] 
+AH00035: access to /index.html denied (filesystem path '/home/shoaib/Documents') 
+because search permissions are missing on a component of the path
+
+Resolution - Provide access to individual folders in path
+sudo chown -R shoaib:www-data /home/shoaib/Documents/my_web_project
+sudo chmod -R 755 /home/shoaib/Documents/my_web_project
+
+Error log - sudo tail -f /var/log/apache2/error.log
+
+apache2 root file was changed to point to custom location
+/etc/apache2/sites-available/000-default.config
+
+ServerAdmin webmaster@localhost
+	DocumentRoot /home/shoaib/Documents/scriptlocal/projectone
+<Directory /home/shoaib/Documents/scriptlocal/projectone>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
